@@ -3,8 +3,8 @@ package lab.scd.net.serialization;
 import java.io.Serializable;
 
 public class Pers implements Serializable {
-	String nume;
-	//transient String nume;
+	//String nume; // the server serializes the name
+	transient String nume; // name = null
 	int varsta;
 
 	Pers(String n, int v) {
@@ -13,6 +13,6 @@ public class Pers implements Serializable {
 	}
 
 	public String toString() {
-		return "Persoana: " + nume + " vasrta: " + varsta;
+		return "Persoana: " + nume + " varsta: " + varsta;
 	}
 }

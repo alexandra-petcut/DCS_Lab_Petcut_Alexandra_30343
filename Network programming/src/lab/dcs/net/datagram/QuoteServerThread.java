@@ -31,12 +31,11 @@ public class QuoteServerThread extends Thread {
         while (moreQuotes) {
             try {
                 byte[] buf = new byte[256];
-
-                    // receive request
+                // receive request
                 DatagramPacket packet = new DatagramPacket(buf, buf.length);
                 socket.receive(packet);
                 
-                    // figure out response
+                // figure out response
                 String dString = null;
                 if (in == null)
                     dString = new Date().toString();
