@@ -7,22 +7,26 @@ import java.nio.file.Files;
 
 public class ComparatorInput {
 	public static void main(String[] args) throws InterruptedException, IOException {
-		
-		File file = new File("D:\\PetriInputData\\comparator.txt");
+
+		File file = new File("D:\\Faculta\\Facultate\\DCS\\Lab\\PetriInputData\\comparator.txt");
 		Files.deleteIfExists(file.toPath());
-		FileWriter fw = new FileWriter(file.getPath());
-		Float f1, f2;
-		for (float i = 0; i < 100; i++) {
-			if (i % 10 < 5) {
-				f1 = i/100;
-				f2 = i/-100;
-			} else {
-				f1 = i/-100;
-				f2 = i/100;
+
+		if (file.getParentFile() != null) {
+			file.getParentFile().mkdirs();
+
+			FileWriter fw = new FileWriter(file.getPath());
+			Float f1, f2;
+
+
+			for (float i = 0; i < 3600; i++) {
+				f1 = (float) Math.sin(Math.toRadians(i));
+				f2 = (float) Math.cos(Math.toRadians(i));
+
+
+				fw.write("P0:" + f1 + "F" + "," + "P1:" + f2 + "F\n");
 			}
-			fw.write("P0:"+f1+"F"+","+"P1:"+f2+"F\n");
+			fw.close();
+			System.out.println("Done!");
 		}
-		fw.close();
-		System.out.println("Done!");
 	}
 }

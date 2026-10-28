@@ -36,7 +36,7 @@ public class Comparator {
 	differentiator.Print();
 	separator.Print();
 	
-	pn.SetInputFile("D:\\PetriInputData\\comparator.txt");
+	pn.SetInputFile("D:\\Faculta\\Facultate\\DCS\\Lab\\PetriInputData\\comparator.txt");
 	
 	DataFuzzy p0 = new DataFuzzy();
 	p0.SetName("P0");
